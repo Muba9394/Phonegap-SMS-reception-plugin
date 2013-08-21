@@ -1,0 +1,1 @@
+../../../plugin/assets/www/SmsPlugin.js

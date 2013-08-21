@@ -1,25 +1,31 @@
-SMS reception plugin for Phonegap
-===============================
-By Pierre-Yves Orban
+SMS reception plugin for Phonegap (Cordova)
+===========================================
+By AppleGrew (Based on code by Pierre-Yves Orban)
 
 This Android Phonegap plugin allows you to receive incoming SMS. You have the possibility to stop the message broadcasting and, thus, avoid theincoming message native popup.
 
-This plugin was successfully tested with Phonegap 2.5 and Android 4.2.2 (on a Samsung Galaxy Nexus device).
+This plugin was successfully tested with Phonegap 3.0 and Android 4.2.2 (on Samsung Galaxy Nexus and Sony Xperia Mini Pro devices).
 
 ## Adding this plugin to your project ##
 0. (Make sure you are using Phonegap > 2.0)
-1. Move SmsInboxPlugin.js to your project's www folder and include a reference to it in your html files. 
+1. Move SmsPlugin.js to your project's www folder and include a reference to it in your html files. 
 2. Add the java files from src to your project's src hierarchy
 3. Reference the plugin in your res/config.xml file
-```<plugin name="SmsInboxPlugin" value="org.apache.cordova.plugin.SmsInboxPlugin"/>```
+```
+<feature name="SmsPlugin">
+  <param name="android-package" value="com.applegrew.cordova.android.plugin.SmsPlugin" />
+</feature>
+```
 4. Ensure that your manifest contains the necessary permissions to send SMS messages:
-```<uses-permission android:name="android.permission.RECEIVE_SMS" />```
-
+```
+<uses-permission android:name="android.permission.RECEIVE_SMS" />
+<uses-permission android:name="android.permission.READ_SMS" />
+```
 
 ## Using the plugin ##
 To instantiate the plugin object:
 ```javascript
-var smsInboxPlugin = cordova.require('cordova/plugin/smsinboxplugin');
+var smsPlugin = cordova.require('cordova/plugin/smsplugin');
 ```
 
 ### isSupported ###
@@ -27,7 +33,7 @@ Check if the SMS technology is supported by the device.
 
 Example:
 ```javascript
-  smsInboxPlugin.isSupported ((function(supported) {
+  smsPlugin.isSupported ((function(supported) {
     if(supported) 
       alert("SMS supported !");
     else
@@ -45,7 +51,7 @@ The error callback is called if an error occurs.
 
 Example:
 ```javascript
-  smsInboxPlugin.startReception (function(msg) {
+  smsPlugin.startReception (function(msg) {
     alert(msg);
   }, function() {
     alert("Error while receiving messages");
@@ -57,7 +63,7 @@ Stop the SMS receiver
 
 Example:
 ```javascript
-  smsInboxPlugin.stopReception (function() {
+  smsPlugin.stopReception (function() {
     alert("Correctly stopped");
   }, function() {
     alert("Error while stopping the SMS receiver");
