@@ -74,7 +74,7 @@ cordova.define("cordova/plugin/smsplugin", function(require, exports, module) {
   /**
    * Gets all sms stored on the device.
    * 
-   * @param maxRowsCount The maximum number of rows to fetch.
+   * @param maxRowsCount The maximum number of rows to fetch. If not needed this can be -1.
    */
   SmsPlugin.prototype.getAllSms = function(maxRowsCount, successCallback,failureCallback) {
     return exec(successCallback, failureCallback, 'SmsPlugin', 'GetAllSms', [maxRowsCount]);
@@ -90,7 +90,7 @@ cordova.define("cordova/plugin/smsplugin", function(require, exports, module) {
   /**
    * Gets all unread sms stored on the device.
    * 
-   * @param maxRowsCount The maximum number of rows to fetch.
+   * @param maxRowsCount The maximum number of rows to fetch. If not needed this can be -1.
    */
   SmsPlugin.prototype.getAllUnreadSms = function(maxRowsCount, successCallback,failureCallback) {
     return exec(successCallback, failureCallback, 'SmsPlugin', 'GetAllUnreadSms', [maxRowsCount]);
