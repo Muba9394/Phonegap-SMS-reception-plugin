@@ -1,4 +1,4 @@
-package com.applegrew.cordova.android.plugin;
+package com.applegrew.cordova.android.plugin.sms;
 
 import org.json.JSONArray;
 import org.json.JSONException;

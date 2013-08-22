@@ -14,7 +14,7 @@
             </intent-filter>
         </activity>
         <receiver
-            android:name="com.applegrew.cordova.android.plugin.SampleLogSmsReceiverManifest"
+            android:name="com.applegrew.cordova.android.plugin.sms.SampleLogSmsReceiverManifest"
             android:enabled="true"
             android:exported="true">
             <intent-filter>

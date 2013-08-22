@@ -16,7 +16,7 @@ This plugin was successfully tested with Phonegap 3.0 and Android 4.2.2 (on Sams
 
 ```
   <feature name="SmsPlugin">
-    <param name="android-package" value="com.applegrew.cordova.android.plugin.SmsPlugin" />
+    <param name="android-package" value="com.applegrew.cordova.android.plugin.sms.SmsPlugin" />
   </feature>
 ```
 4. Ensure that your manifest contains the necessary permissions to read SMS messages:
@@ -126,7 +126,7 @@ A good way to manage this is to stop the sms reception when the onPause event is
 The above broadcast APIs only works when your app is in foreground. There is another way available which works even when the app is stopped. That is called Broadcast Component. To use that you need to make the following entry inside your manifest file's `<application>`.
 ```
 <receiver
-  android:name="com.applegrew.cordova.android.plugin.SampleLogSmsReceiverManifest"
+  android:name="com.applegrew.cordova.android.plugin.sms.SampleLogSmsReceiverManifest"
   android:enabled="true"
   android:exported="true">
   <intent-filter>
