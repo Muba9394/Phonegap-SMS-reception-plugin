@@ -17,9 +17,15 @@ public class SmsInboxReader {
     public SmsInboxReader(ContentResolver conResolver) {
         resolver = conResolver;
     }
+    
+    protected JSONArray getMessages(int maxRows, String whereClause, String[] whereArgs) {
+        return getMessages(maxRows, whereClause, whereArgs, null);
+    }
 
-    public JSONArray getMessages(int maxRows, String whereClause, String[] whereArgs) {
-        String orderByClause = SMS.DATE + " ASC"; 
+    public JSONArray getMessages(int maxRows, String whereClause, String[] whereArgs, String orderByClause) {
+        if (orderByClause == null) {
+            orderByClause = SMS.DATE + " ASC";
+        }
         if (maxRows > 0) {
             orderByClause += " LIMIT " + maxRows;
         }

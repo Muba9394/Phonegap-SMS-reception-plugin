@@ -120,11 +120,13 @@ public class SmsPlugin extends CordovaPlugin {
             String obj = arg.getString(1);
             final String whereClause = JSONObject.NULL.equals(obj) ? null : obj;
             final String[] whereArgs = JSONUtil.jsonArrayToStringArray(arg.getJSONArray(2));
+            obj = arg.getString(3);
+            final String orderByClause = JSONObject.NULL.equals(obj) ? null : obj;
             
             cordova.getThreadPool().execute(new Runnable () {
                 @Override
                 public void run() {
-                    callbackContext.success(smsReader.getMessages(maxRows, whereClause, whereArgs));
+                    callbackContext.success(smsReader.getMessages(maxRows, whereClause, whereArgs, orderByClause));
                 }
             });
             return true;

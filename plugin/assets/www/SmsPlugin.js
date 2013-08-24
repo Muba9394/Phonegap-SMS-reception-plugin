@@ -67,8 +67,9 @@ cordova.define("cordova/plugin/smsplugin", function(require, exports, module) {
    * @param whereArgsArray If any '?' is used in the above WHERE-clause then supply the
    * value for that in this array. If not needed this can be null.
    */
-  SmsPlugin.prototype.getSmsByCustomCriteria = function(maxRowsCount, whereClause, whereArgsArray, successCallback,failureCallback) {
-    return exec(successCallback, failureCallback, 'SmsPlugin', 'GetSmsByCustomCriteria', [maxRowsCount, whereClause, whereArgsArray]);
+  SmsPlugin.prototype.getSmsByCustomCriteria = function(maxRowsCount, whereClause, whereArgsArray, orderByClause,
+          successCallback,failureCallback) {
+    return exec(successCallback, failureCallback, 'SmsPlugin', 'GetSmsByCustomCriteria', [maxRowsCount, whereClause, whereArgsArray, orderByClause]);
   }
   
   /**
